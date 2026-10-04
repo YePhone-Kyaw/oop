@@ -118,5 +118,7 @@
 ///  E.g. we can use + sign for not only string concatination but also integer addition and something like that.
 ///  
 ///  How to do custom operator overloading?
-///  Need to use 'operator' keyword
+///  Must use public static
+///  Must use 'operator' keyword
+///  Must return something
 ///
