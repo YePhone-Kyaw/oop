@@ -102,4 +102,16 @@
 /// Interface is Multiple Inheritance when we want to update the original interface or want to add new properties, methods or whatever to the old interface 
 /// without afecting the old one.
 /// In that situation, we use multiple inheritance which is for versioning.
+/// 
+/// Difference between Abstract Calss and Interface
+/// - Abstract class is a prtially defined parent class.
+/// - Interface is just the structure and cannot add any logic.
+/// - Abstract class has the common logics that share for the child classes.
+/// 
+/// 1 - Interface is the Planning Abstraction phase [e.g. ICustomer]
+/// 2 - The abstract class is created and we define the common logic [e.g. abstract Customer class]
+/// 3 - Full calsses are created as concrete classes [e.g. Gold and silber customers]
+/// 
+/// ** Interfaces are implemented, while abstract classes are inherited.
+/// ** Even though the abstract calss can act like interface, but they cannot do multiple inheritance.
 ///
