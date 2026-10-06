@@ -11,6 +11,10 @@
 
             ICustomer x1 = new SilverCustomer();
             x1.CalculateDiscount();
+
+            ICustomerWithInterest x2 = new SilverCustomer();
+            x2.CalculateDiscount();
+            x2.CalculateInterest();
         }
     }
 
@@ -23,7 +27,12 @@
         decimal CalculateDiscount();
     }
 
-    public abstract class Customer : ICustomer
+    public interface ICustomerWithInterest : ICustomer
+    {
+        decimal CalculateInterest();
+    }
+
+    public abstract class Customer : ICustomer, ICustomerWithInterest
     {
         public string name { get; set; }
         public string address { get; set; }
@@ -35,6 +44,11 @@
         // {
         //     throw new NotImplementedException("Will be done by child classes");
         // }
+
+        public decimal CalculateInterest()
+        {
+            return 0;
+        }
     }
     public class GoldCustomer : Customer
     {
@@ -77,6 +91,15 @@
 /// 
 /// Can we write logic in interface? [No]
 /// Can we define methods as private, protected in interface? [No, it's public by default]
+/// Can we careate an instace of Interface or Abstract classes? [No]
 /// 
 /// Once we implement the interface, we have to follow all the propertities, all the methods religiously
+/// 
+/// If we wannt to change the intterfaces, what would be the best practice?
+///  - We create a new interface
+///  - Inherit from the original interface and add new properties or methods whatever we want in the new interface
+/// 
+/// Interface is Multiple Inheritance when we want to update the original interface or want to add new properties, methods or whatever to the old interface 
+/// without afecting the old one.
+/// In that situation, we use multiple inheritance which is for versioning.
 ///
