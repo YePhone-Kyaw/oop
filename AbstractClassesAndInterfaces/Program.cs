@@ -114,4 +114,3 @@
 /// 
 /// ** Interfaces are implemented, while abstract classes are inherited.
 /// ** Even though the abstract calss can act like interface, but they cannot do multiple inheritance.
-///
