@@ -58,6 +58,9 @@
 /// This allows methods to be passed around like variables
 /// 
 /// Multicast Delegates is the one we attach multiple functions to the delegate
-/// For the multicast delegates, we need to use += or -= sign
+/// For the multicast delegates, we need to use += or -= sign.
+/// Use += to attach a method
+/// Use -= to detach a method
+/// All attached methods are called in the order they were added
 ///
 
