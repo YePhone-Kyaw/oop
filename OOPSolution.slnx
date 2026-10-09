@@ -1,5 +1,6 @@
 <Solution>
   <Project Path="AbstractClassesAndInterfaces/AbstractClassesAndInterfaces.csproj" Id="c595b5dd-5c0b-4a81-b92a-a304961994e7" />
+  <Project Path="Constructors/Constructors.csproj" Id="9eceeca2-f93a-4411-9760-2a1bb09fa825" />
   <Project Path="DelegatesAndEvents/DelegatesAndEvents.csproj" Id="0d356ad7-edaa-4d86-b891-8c9b816ee1e2" />
   <Project Path="FourPillars/FourPillars.csproj" />
 </Solution>
