@@ -5,9 +5,9 @@
         static void Main(string[] args)
         {
             MyFileSearch fileSearch = new MyFileSearch();
-            fileSearch.SendData += Receiver1;
-            fileSearch.SendData += Receiver2;
-            fileSearch.SendData = null;
+            fileSearch.publisher += Subscriber1;
+            fileSearch.publisher += Subscriber2;
+            // fileSearch.publisher = null;
 
             Console.WriteLine("File search started...");
             Task.Run(() => fileSearch.Search("D://Sharpening")); // Non blocking call
@@ -17,11 +17,11 @@
             Console.ReadLine();
         }
 
-        static void Receiver1(string fileName)
+        static void Subscriber1(string fileName)
         {
             Console.WriteLine(fileName);
         }
-        static void Receiver2(string fileName)
+        static void Subscriber2(string fileName)
         {
             Console.WriteLine(fileName);
         }
@@ -30,19 +30,19 @@
     public class MyFileSearch
     {
         public delegate void searchMethod(string search); // Create Delegate
-        public event searchMethod SendData = null; // Create instance of delegate
+        public event searchMethod publisher = null; // Create instance of delegate
         public void Search(string dir)
         {
             try
             {
                 foreach (string file in Directory.GetFiles(dir))
                 {
-                    SendData(file);
+                    publisher(file);
                 }
 
                 foreach (string d in Directory.GetDirectories(dir))
                 {
-                    SendData(d);
+                    publisher(d);
                 }
             }
             catch (Exception ex)
@@ -70,5 +70,10 @@
 /// Events use Delegates internally.
 /// Events are encapsulation over delegates.
 /// They encapsulate delegates and make them safe.
+/// Event helps us to implement pure publisher - subscriber (or) observable - observer model
+/// 
+/// Events Vs Delegates
+/// Delegates are for callbacks, not encapsulated
+/// Events are publisher - subscriber model, encapsulated
 ///
 
